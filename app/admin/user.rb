@@ -13,5 +13,9 @@ ActiveAdmin.register User do
 #   permitted
 # end
 
-
+  index do
+    id_column
+    column :email
+    actions
+  end
 end
