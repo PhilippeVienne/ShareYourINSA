@@ -22,10 +22,10 @@ This project is distributed under the GNU GPL v3 Licence.
 
 ### Contibutors
 
-&copy; 2016, Philippe VIENNE
-&copy; 2016, Lélio CHETOT
-&copy; 2016, Nadia BOUCHAKOR
-&copy; 2016, Guillaume THIRIET
-&copy; 2016, Federico CATALANO
-&copy; 2016, INSA Lyon, Département Télécommunication
-&copy; 2016, INSA Lyon, Direction de la Communication
+ - &copy; 2016, Philippe VIENNE
+ - &copy; 2016, Lélio CHETOT
+ - &copy; 2016, Nadia BOUCHAKOR
+ - &copy; 2016, Guillaume THIRIET
+ - &copy; 2016, Federico CATALANO
+ - &copy; 2016, INSA Lyon, Département Télécommunication
+ - &copy; 2016, INSA Lyon, Direction de la Communication
