@@ -31,11 +31,11 @@ class User < ActiveRecord::Base
         user = User.new(
             name: auth.extra.raw_info.name,
             #username: auth.info.nickname || auth.uid,
-            email: email ? email : "#{TEMP_EMAIL_PREFIX}-#{auth.uid}-#{auth.provider}.com",
+            email: email ? email : "generated-#{auth.uid}@#{auth.provider}.com",
             password: Devise.friendly_token[0,20]
         )
         user.skip_confirmation!
-        user.save!
+        user.save! validate: false
       end
     end
 
@@ -48,6 +48,6 @@ class User < ActiveRecord::Base
   end
 
   def email_verified?
-    self.email && self.email !~ TEMP_EMAIL_REGEX
+    self.email && self.email !~ /generated-[a-z_A-Z0-9]*@[a-zA-Z0-9]*\.com/
   end
 end
