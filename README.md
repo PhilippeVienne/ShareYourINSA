@@ -1,9 +1,9 @@
-== ShareYourINSA
+# ShareYourINSA
 
 ShareYourINSA is a social platform to help INSA ingeneers to communicate. The system is linked with LinkedIn to grab the
 useful data. On the home page, there is a Showroom of "How are INSA engineer ?".
 
-=== Technical specifications
+## Technical specifications
 
 This project use RubyOnRails to work. To try it, you must have installed the latest version of Ruby (2.2.4+), Gem and 
 bundler. 
@@ -16,11 +16,11 @@ rake db:migrate
 rake db:setup
 ```
 
-=== Licence
+## Licence
 
 This project is distributed under the GNU GPL v3 Licence.
 
-==== Contibutors
+### Contibutors
 
 &copy; 2016, Philippe VIENNE
 &copy; 2016, Lélio CHETOT
