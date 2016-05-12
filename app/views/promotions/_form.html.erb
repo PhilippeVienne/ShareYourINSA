@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :department %><br>
-    <%= f.select :department, Department.all.map { |u| [u.department_name] }, { :prompt => "Please Select" } %>
+    <%= f.collection_select(:id_department, Department.all, :id, :department_name, :prompt => 'Select') %>
   </div>
   <div class="actions">
     <%= f.submit %>

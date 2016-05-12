@@ -5,6 +5,7 @@ class DepartmentsController < ApplicationController
   # GET /departments.json
   def index
     @departments = Department.all
+    @insas_names = Insa.all.collect {|i| i.name }
   end
 
   # GET /departments/1

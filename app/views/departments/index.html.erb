@@ -6,6 +6,7 @@
   <thead>
     <tr>
       <th>Department name</th>
+      <th>Insa</th>
       <th>Id insa</th>
       <th>Creation date</th>
       <th colspan="3"></th>
@@ -16,6 +17,7 @@
     <% @departments.each do |department| %>
       <tr>
         <td><%= department.department_name %></td>
+        <td><%= @insas_names.at(department.id_insa - 1)%></td>
         <td><%= department.id_insa %></td>
         <td><%= department.creation_date %></td>
         <td><%= link_to 'Show', department %></td>

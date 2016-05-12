@@ -5,6 +5,14 @@ class ProfileUsersController < ApplicationController
   # GET /profile_users.json
   def index
     @profile_users = ProfileUser.all
+    departments_names = Department.all.collect {|d| d.department_name}
+    @promotions = Promotion.all.collect {
+        |p|
+      [
+          "#{p.start_date} - #{p.end_date} #{departments_names[p.id_department- 1]}",
+          p.id
+      ]
+    }
   end
 
   # GET /profile_users/1
@@ -15,6 +23,15 @@ class ProfileUsersController < ApplicationController
   # GET /profile_users/new
   def new
     @profile_user = ProfileUser.new
+    departments_names = Department.all.collect {|d| d.department_name}
+    @promotions = Promotion.all.collect {
+        |p|
+      [
+          "#{p.start_date} - #{p.end_date} #{departments_names[p.id_department- 1]}",
+          p.id
+      ]
+    }
+
   end
 
   # GET /profile_users/1/edit

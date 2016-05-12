@@ -5,6 +5,7 @@ class PromotionsController < ApplicationController
   # GET /promotions.json
   def index
     @promotions = Promotion.all
+    @departments_names = Department.all.collect {|d| d.department_name}
   end
 
   # GET /promotions/1
@@ -19,6 +20,7 @@ class PromotionsController < ApplicationController
 
   # GET /promotions/1/edit
   def edit
+    @insas = Insa.all
   end
 
   # POST /promotions

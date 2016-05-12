@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :insa %><br>
-    <%= f.select :insa, Insa.all.map { |u| [u.name] }, { :prompt => "Please Select" }%>
+    <%= f.collection_select(:id_insa, @insas, :id, :name, :prompt => 'Select') %>
   </div>
   <div class="field">
     <%= f.label :creation_date %><br>

@@ -31,7 +31,7 @@
         <td><%= profile_user.languages_spoken %></td>
         <td><%= profile_user.skills %></td>
         <td><%= profile_user.diplomas %></td>
-        <td><%= profile_user.promotion_id %></td>
+        <td><%= @promotions[profile_user.promotion_id - 1][0] %></td>
         <td><%= link_to 'Show', profile_user %></td>
         <td><%= link_to 'Edit', edit_profile_user_path(profile_user) %></td>
         <td><%= link_to 'Destroy', profile_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
