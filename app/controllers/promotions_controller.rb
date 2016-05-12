@@ -61,15 +61,7 @@ class PromotionsController < ApplicationController
     end
   end
 
-  # Return a promotion formatted as start-end
-  def format_promotion
-    promotions = Promotion.all
-    departments = Department.all
-    formated = []
-    promotions.each do |promotion|
-      formated << "#{promotion.start_date}" + "-" + "#{promotion.end_date}" + "#{departments.find()}"
-    end
-  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_promotion

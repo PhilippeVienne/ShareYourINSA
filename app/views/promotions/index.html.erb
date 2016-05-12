@@ -7,7 +7,7 @@
     <tr>
       <th>Start date</th>
       <th>End date</th>
-      <th>Id department</th>
+      <th>Department</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +17,7 @@
       <tr>
         <td><%= promotion.start_date %></td>
         <td><%= promotion.end_date %></td>
-        <td><%= promotion.id_department %></td>
+        <td><%= Department.find(promotion.id).department_name %></td>
         <td><%= link_to 'Show', promotion %></td>
         <td><%= link_to 'Edit', edit_promotion_path(promotion) %></td>
         <td><%= link_to 'Destroy', promotion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -25,7 +25,6 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
 
 <%= link_to 'New Promotion', new_promotion_path %>
