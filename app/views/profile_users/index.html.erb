@@ -15,27 +15,34 @@
       <th>Skills</th>
       <th>Diplomas</th>
       <th>Promotion</th>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @profile_users.each do |profile_user| %>
-      <tr>
-        <td><%= profile_user.first_name %></td>
-        <td><%= profile_user.last_name %></td>
-        <td><%= profile_user.company_name %></td>
-        <td><%= profile_user.industry_domain %></td>
-        <td><%= profile_user.location %></td>
-        <td><%= profile_user.phone_number %></td>
-        <td><%= profile_user.languages_spoken %></td>
-        <td><%= profile_user.skills %></td>
-        <td><%= profile_user.diplomas %></td>
-        <td><%= @promotions[profile_user.promotion_id - 1][0] %></td>
-        <td><%= link_to 'Show', profile_user %></td>
-        <td><%= link_to 'Edit', edit_profile_user_path(profile_user) %></td>
-        <td><%= link_to 'Destroy', profile_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <% if profile_user.locked_state == 0%>
+        <tr>
+          <td><%= profile_user.first_name %></td>
+          <td><%= profile_user.last_name %></td>
+          <td><%= profile_user.company_name %></td>
+          <td><%= profile_user.industry_domain %></td>
+          <td><%= profile_user.location %></td>
+          <td><%= profile_user.phone_number %></td>
+          <td><%= profile_user.languages_spoken %></td>
+          <td><%= profile_user.skills %></td>
+          <td><%= profile_user.diplomas %></td>
+          <td>
+            <% unless profile_user.promotion_id.nil? %>
+                <%= @promotions[profile_user.promotion_id - 1][0] %>
+            <% end %>
+          </td>
+          <td><%= link_to 'Show', profile_user %></td>
+          <td><%= link_to 'Edit', edit_profile_user_path(profile_user) %></td>
+          <td><%= link_to 'Destroy', profile_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Lock', profile_user, method: :lock_profile, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>

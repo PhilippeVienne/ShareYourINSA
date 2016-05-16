@@ -41,8 +41,7 @@ class ProfileUsersController < ApplicationController
   # POST /profile_users
   # POST /profile_users.json
   def create
-    @profile_user = ProfileUser.new(profile_user_params)
-
+    @profile_user = ProfileUser.new(profile_user_params, locked_state: 0)
     respond_to do |format|
       if @profile_user.save
         format.html { redirect_to @profile_user, notice: 'Profile user was successfully created.' }
@@ -76,6 +75,10 @@ class ProfileUsersController < ApplicationController
       format.html { redirect_to profile_users_url, notice: 'Profile user was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def lock_profile
+    @profile_user.locked_state = true
   end
 
   private

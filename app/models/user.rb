@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-
+  has_one :profile_user
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :confirmable, :lockable,

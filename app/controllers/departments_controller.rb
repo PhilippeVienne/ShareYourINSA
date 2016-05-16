@@ -16,6 +16,7 @@ class DepartmentsController < ApplicationController
   # GET /departments/new
   def new
     @department = Department.new
+    @insas      = Insa.all
   end
 
   # GET /departments/1/edit
