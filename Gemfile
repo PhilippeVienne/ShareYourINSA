@@ -51,3 +51,5 @@ gem 'omniauth-linkedin'
 
 gem 'activeadmin', github: 'activeadmin'
 gem 'cancancan'
+
+gem 'bootstrap-sass', '~> 3.3.6'
