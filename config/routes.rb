@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
   resources :profile_users
+  resource :profile, only: [:show, :edit, :update], controller: :profile
   resources :promotions
   resources :departments
   resources :insas
-
-  match '/profile' => 'profile_users#current_user_profile_edit', via: [:get], as: :edit_my_profile
-  match '/profile' => 'profile_users#update', via: [:post, :put], as: :update_my_profile
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
