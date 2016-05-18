@@ -1,6 +1,11 @@
 class ProfileUsersController < ApplicationController
   before_action :set_profile_user, only: [:show, :edit, :update, :destroy]
 
+  def current_user_profile_edit
+    @profile_user = ProfileUser.find_or_create_by user: current_user
+    render :edit
+  end
+
   # GET /profile_users
   # GET /profile_users.json
   def index
@@ -44,7 +49,13 @@ class ProfileUsersController < ApplicationController
     @profile_user = ProfileUser.new(profile_user_params, locked_state: 0)
     respond_to do |format|
       if @profile_user.save
-        format.html { redirect_to @profile_user, notice: 'Profile user was successfully created.' }
+        format.html do
+          if @profile_user.user == current_user
+            redirect_to :profile, notice: 'Profile user was successfully created.'
+          else
+            redirect_to @profile_user, notice: 'Profile user was successfully created.'
+          end
+        end
         format.json { render :show, status: :created, location: @profile_user }
       else
         format.html { render :new }
@@ -58,7 +69,13 @@ class ProfileUsersController < ApplicationController
   def update
     respond_to do |format|
       if @profile_user.update(profile_user_params)
-        format.html { redirect_to @profile_user, notice: 'Profile user was successfully updated.' }
+        format.html do
+          if @profile_user.user == current_user
+            redirect_to :profile, notice: 'Profile user was successfully created.'
+          else
+            redirect_to @profile_user, notice: 'Profile user was successfully created.'
+          end
+        end
         format.json { render :show, status: :ok, location: @profile_user }
       else
         format.html { render :edit }
