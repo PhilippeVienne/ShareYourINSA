@@ -78,7 +78,7 @@ class ProfileUsersController < ApplicationController
   end
 
   def lock_profile
-    @profile_user.locked_state = true
+    @profile_user.locked_state = 1
   end
 
   private
