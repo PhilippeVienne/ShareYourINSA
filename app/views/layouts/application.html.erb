@@ -18,10 +18,10 @@
       <div class="navbar-collapse collapse navbar-responsive-collapse">
         <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-              <li><%= link_to "Mon profil", edit_profile_path, :method => :delete %></li>
+              <li><%= link_to "Mon profil", edit_profile_path %></li>
           <% end %>
         </ul>
-        <ul class="nav nav-pills pull-right">
+        <ul class="nav navbar-nav pull-right">
           <% if user_signed_in? %>
               <li><%= link_to "Deconnexion", destroy_user_session_path, :method => :delete %></li>
           <% else %>
@@ -33,6 +33,11 @@
   </div>
 
 <%= yield %>
+
+<footer class="container">
+  <hr>
+  <div class="text-center">&copy; 2016, INSA Lyon</div>
+</footer>
 
 </body>
 </html>
