@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :profile_users
   resource :profile, only: [:show, :edit, :update], controller: :profile
   resources :promotions
