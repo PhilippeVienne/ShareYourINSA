@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
+  get '/find/:name' => 'profile_research#research_results'
+  get '/find' => 'profile_research#find_user'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

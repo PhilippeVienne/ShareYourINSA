@@ -8,6 +8,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       set_flash_message(:notice, :success, kind: "linked_in".capitalize) if is_navigational_format?
     else
       session["devise.linked_in_data"] = env["omniauth.auth"]
+      #recupération des données LinkedIn
       redirect_to new_user_registration_url
     end
   end

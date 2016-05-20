@@ -22,3 +22,25 @@
 footer{
   margin-bottom:30px;
 }
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #f1f1f1;
+  height: 100%;
+  color:white;
+  background-color:white;
+  background-image:url(../images/bg.jpg);
+  background-size: cover;
+}
+
+.navbar{
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}

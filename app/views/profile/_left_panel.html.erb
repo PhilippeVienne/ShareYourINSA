@@ -1,0 +1,18 @@
+<div class="col-sm-4 sidenav">
+  <header id="header" class="text-right">
+    <h2><%= @profile_user.first_name %> <%= @profile_user.last_name%></h2>
+
+    <img src="../../assets/images/trex.jpg" class="img-circle" alt="T-Rex" width="150" height="150">
+    <h3><strong>A field</strong> to add something<br />
+      like a short description or a brief resumé<br />
+    </h3> <br />
+    <p>Location <br />
+      <%= @profile_user.phone_number %><br />
+      <%= @profile_user.company_name %><br />
+      <%= @profile_user.languages_spoken %><br />
+      <%= @profile_user.skills %><br />
+      <%= @profile_user.diplomas %><br />
+    </p>
+    <button type="submit" class="btn btn-primary btn-lg" value="Send Message">Send Message</button>
+  </header>
+</div>
