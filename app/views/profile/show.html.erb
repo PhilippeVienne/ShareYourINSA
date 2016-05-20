@@ -1,4 +1,9 @@
 <h1>My profile</h1>
-<% render 'left_panel' %>
-#TODO
+<div class="container-fluid">
+  <div class="row content">
+    <% render html: 'left_panel'%>
+    <% render html: 'right_panel' %>
+  </div>
+</div>
+
 <p><%= link_to 'Edit', edit_profile_path %></p>
