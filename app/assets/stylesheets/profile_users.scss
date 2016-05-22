@@ -2,8 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-.row.content {height: 1500px}
+#profile-panel{
+  #profile{
+    padding-bottom: 50px;
+  }
+}
 
 /* Set black background color, white text and some padding */
 footer {
