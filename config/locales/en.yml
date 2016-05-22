@@ -24,3 +24,6 @@ en:
   email: "Email"
   password: "Password"
   register: "Register"
+  post:
+    saved: "Your post has been saved"
+    error: "Error while we try to create your post"

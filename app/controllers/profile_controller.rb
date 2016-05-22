@@ -13,7 +13,12 @@ class ProfileController < ApplicationController
   end
 
   def new_post
-    Post.create(post_params)
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to :profile, notice: t('post.saved')
+    else
+      redirect_to :profile, notice: t('post.error')
+    end
   end
 
   def update
