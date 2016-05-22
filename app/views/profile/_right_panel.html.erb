@@ -1,13 +1,4 @@
 <div class="col-sm-8">
-  <h4><small>RECENT POSTS</small></h4>
-  <hr>
-  <% @posts.each do |post| %>
-      <h2><%= @posts.title %></h2>
-      <h5><span class="glyphicon glyphicon-time"></span> <%= @profile_user.post.created_at %></h5>
-      <h5><span class="label label-danger">Food</span> <span class="label label-primary">Ipsum</span></h5><br>
-      <%= post.content %>
-  <% end %>
-  <hr />
 
   <h2>Your posts</h2>
   <div id="new-post-section" class="panel panel-default">
