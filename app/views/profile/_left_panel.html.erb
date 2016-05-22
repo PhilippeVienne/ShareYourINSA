@@ -2,11 +2,12 @@
   <header id="header" class="text-right">
     <h2><%= @profile_user.first_name %> <%= @profile_user.last_name%></h2>
 
-    <img src="assets_url trex.jpg" class="img-circle" alt="T-Rex" width="150" height="150">
+    <img src="<%= asset_url 'trex.jpg' %>" class="img-circle" alt="T-Rex" width="150" height="150">
     <h3><strong>A field</strong> to add something<br />
       like a short description or a brief resumé<br />
     </h3> <br />
-    <p>Location <br />
+    <p>Details<br />
+      <%= @profile_user.location %><br />
       <%= @profile_user.phone_number %><br />
       <%= @profile_user.company_name %><br />
       <%= @profile_user.languages_spoken %><br />

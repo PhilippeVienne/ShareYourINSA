@@ -5,10 +5,15 @@ class ProfileController < ApplicationController
 
   def show
     @profile_user = ProfileUser.find_or_create_by user: current_user
+    @posts = Post.find_by_user_id(current_user.id) || []
   end
 
   def edit
     @profile_user = ProfileUser.find_or_create_by user: current_user
+  end
+
+  def new_post
+    Post.create(post_params)
   end
 
   def update
@@ -31,5 +36,9 @@ class ProfileController < ApplicationController
     params.require(:profile_user).permit(
         :first_name, :last_name, :company_name, :industry_domain, :location, :phone_number, :languages_spoken,
         :skills, :diplomas, :promotion_id, :avatar)
+  end
+
+  def post_params
+    params.require(:post).permit(:content, :created_at, :title, :updated_at, :user_id)
   end
 end

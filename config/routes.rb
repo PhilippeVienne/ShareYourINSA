@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   get '/find/:name' => 'profile_research#research_results'
   get '/find' => 'profile_research#find_user'
+  post "/new_post" => "profile#new_post"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
