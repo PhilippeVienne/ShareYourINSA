@@ -49,6 +49,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-linkedin'
 gem 'paperclip'
+gem 'linkedin'
 
 gem 'cancancan'
 gem 'rails_admin'
