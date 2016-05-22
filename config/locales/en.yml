@@ -21,3 +21,6 @@
 
 en:
   hello: "Hello world"
+  email: "Email"
+  password: "Password"
+  register: "Register"

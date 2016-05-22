@@ -17,7 +17,11 @@
         <li class="active"><a href="#">Home</a></li>
         <li><a href="#">About</a></li>
         <li><a href="#">Contact</a></li>
-        <li><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <%- if current_user.nil?  %>
+          <li><a href="<%= new_user_session_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% else %>
+            <li><%= link_to destroy_user_session_path, method: :delete do %><span class="glyphicon glyphicon-log-out"></span> Logout<% end %></li>
+        <% end -%>
       </ul>
     </div>
   </div>
