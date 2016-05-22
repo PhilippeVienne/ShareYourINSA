@@ -19,9 +19,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-footer{
-  margin-bottom:30px;
-}
 
 /* Set gray background color and 100% height */
 .sidenav {
@@ -56,4 +53,12 @@ footer {
   background-color: #555;
   color: white;
   padding: 15px;
+  position: fixed;
+  bottom: 0;
+  right:0;
+  left:0;
+  height:50px;
+}
+body{
+  padding-bottom:50px;
 }
