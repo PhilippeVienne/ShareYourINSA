@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160520132206) do
+ActiveRecord::Schema.define(version: 20160522112855) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20160520132206) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
+  create_table "comments", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "departments", force: :cascade do |t|
     t.string   "department_name"
     t.integer  "id_insa"
@@ -72,6 +80,14 @@ ActiveRecord::Schema.define(version: 20160520132206) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string   "title"
+    t.integer  "user_id"
+    t.text     "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profile_users", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
@@ -83,10 +99,14 @@ ActiveRecord::Schema.define(version: 20160520132206) do
     t.text     "skills"
     t.text     "diplomas"
     t.integer  "promotion_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "locked_state"
     t.integer  "user_id"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "promotions", force: :cascade do |t|
@@ -96,6 +116,16 @@ ActiveRecord::Schema.define(version: 20160520132206) do
     t.integer  "year"
     t.integer  "number"
     t.integer  "department_id"
+  end
+
+  create_table "show_room_profiles", force: :cascade do |t|
+    t.integer  "profile_user_id"
+    t.integer  "active"
+    t.integer  "position"
+    t.text     "description"
+    t.string   "video_resource"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
 
   create_table "users", force: :cascade do |t|
