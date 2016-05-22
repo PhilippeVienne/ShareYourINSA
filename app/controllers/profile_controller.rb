@@ -5,7 +5,7 @@ class ProfileController < ApplicationController
 
   def show
     @profile_user = ProfileUser.find_or_create_by user: current_user
-    @posts = Post.find_by_user_id(current_user.id) || []
+    @posts = current_user.posts.order(:created_at).reverse
   end
 
   def edit
@@ -13,7 +13,13 @@ class ProfileController < ApplicationController
   end
 
   def new_post
-    Post.create(post_params)
+    @post = Post.new(post_params)
+    @post.user = current_user
+    if @post.save
+      redirect_to :profile, notice: t('post.saved')
+    else
+      redirect_to :profile, notice: t('post.error')
+    end
   end
 
   def update
@@ -39,6 +45,6 @@ class ProfileController < ApplicationController
   end
 
   def post_params
-    params.require(:post).permit(:content, :created_at, :title, :updated_at, :user_id)
+    params.require(:post).permit(:content, :title)
   end
 end
