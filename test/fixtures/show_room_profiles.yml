@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  profile_user_id: 1
+  active: 1
+  position: 1
+  description: MyText
+  video_resource: MyString
+
+two:
+  profile_user_id: 1
+  active: 1
+  position: 1
+  description: MyText
+  video_resource: MyString
