@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_one :profile_user
   has_many :posts
+  has_many :comments
 
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable
