@@ -74,7 +74,7 @@
   </div>
   <div class="form-group">
     <%= f.label :promotion %><br>
-    <%= f.select(:promotion_id, options_for_select(Promotion.all), :prompt => 'Select', html:{class: 'form-control'}) %>
+    <%= f.select(:promotion_id, options_for_select(Promotion.all.order(:year).reverse_order), {:prompt => 'Select'}, {class: 'form-control s2hook'}) %>
   </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-success btn-block' %>
