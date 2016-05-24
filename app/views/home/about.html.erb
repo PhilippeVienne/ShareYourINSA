@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row text-center">
+    <div class="col-sm-12 panel">
+      <h1>Notre &#233quipe</h1>
+    </div>
+    <div class="col-sm-12 panel">
+      <div class="col-sm-4">
+        <img src="<%= asset_url 'nadia.png' %>" class="img-circle" alt="Nadia" width="140" height="140">
+        <p class="text-center"><strong>Nadia Bouchakor</strong></p>
+        <p class="text-center">(SVG/UI)</p>
+      </div>
+      <div class="col-sm-4">
+        <img src="<%= asset_url 'philippe.png' %>" class="img-circle" alt="Philippe" width="140" height="140">
+        <p class="text-center"><strong>Philippe Vienne</strong></p>
+        <p class="text-center">(Chef de projet)</p>
+      </div>
+      <div class="col-sm-4">
+        <img src="<%= asset_url 'guillaume.png' %>" class="img-circle" id="trash-guigui" alt="Guillaume" width="140" height="140">
+        <p class="text-center"><strong>Guillaume Thiriet</strong></p>
+        <p class="text-center">(UX/UI)</p>
+        <!-- Modal -->
+        <div class="modal fade" id="guillaume" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Guillaume, à l'age de 5 ans ...</h4>
+              </div>
+              <div class="modal-body">
+                <iframe width="420" height="315" src="https://www.youtube.com/embed/65h10_Nugdw?rel=0&amp;showinfo=0&amp;autoplay=1" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12 panel">
+        <div class="col-sm-3">
+        </div>
+        <div class="col-sm-3">
+          <img src="<%= asset_url 'fede.png' %>" class="img-circle" alt="Federico" width="140" height="140">
+          <p class="text-center"><strong>Federico Catalano</strong></p>
+          <p class="text-center">(LinkedIn API)</p>
+        </div>
+        <div class="col-sm-3">
+          <img src="<%= asset_url 'lelio.png' %>" class="img-circle trash" id="lelio-we-love-you" alt="Lelio" width="140" height="140" data-trash="true" data-trash-2="<%= asset_url 'lelio-trash2.png' %>" data-trash-1="<%= asset_url 'lelio-trash1.png' %>">
+          <p class="text-center"><strong>Lelio Chetot</strong></p>
+          <p class="text-center">(Backend)</p>
+        </div>
+        <div class="col-sm-3">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

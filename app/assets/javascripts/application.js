@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require select2
+//= require bootstrap
 //= require_tree .
 $(function(){
     $( "select.s2hook" ).select2({

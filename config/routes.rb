@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   match '/users/:id' => 'users#show', via: [:get], :as => :user
 
   root to: "home#index"
+  get '/about' => 'home#about'
 
   get '/find' => 'profile_research#find_user'
   post '/find' => 'profile_research#research_results'
