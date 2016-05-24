@@ -1,0 +1,30 @@
+<div class="comments">
+  <%- @post.comments.each do |comment| %>
+      <div class="comment margin clearfix">
+        <img src="<%= comment.user.profile_user.avatar.url %>" class="pull-left small-image">
+                <span class="name">
+                  <span class="first_name"><%= comment.user.profile_user.first_name %></span>
+                  <span class="last_name"><%= comment.user.profile_user.last_name %></span>
+                </span>
+        <span class="content"><%= comment.content %></span>
+      </div>
+  <% end -%>
+  <div class="comment hide model margin clearfix">
+    <img class="pull-left small-image">
+                <span class="name">
+                  <span class="first_name"></span>
+                  <span class="last_name"></span>
+                </span>
+    <span class="content"></span>
+  </div>
+</div>
+<form action="" method="get" class="create-comment-form" data-post-id="<%= @post.id %>">
+  <div class="form-group">
+    <div class="input-group">
+      <input class="form-control create-comment" title="write comment" placeholder="Write a comment ...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="submit">Comment</button>
+              </span>
+    </div>
+  </div>
+</form>
