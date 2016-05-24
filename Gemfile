@@ -59,3 +59,5 @@ gem 'select2-rails'
 
 gem 'fabrication'
 gem 'faker'
+
+gem 'rails_12factor', group: :production
