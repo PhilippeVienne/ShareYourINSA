@@ -1,0 +1,2 @@
+module ShowRoomProfilesHelper
+end
