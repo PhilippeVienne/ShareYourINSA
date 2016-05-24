@@ -23,8 +23,8 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  get '/find/:name' => 'profile_research#research_results'
   get '/find' => 'profile_research#find_user'
+  post '/find' => 'profile_research#research_results'
   post "/new_post" => "profile#new_post"
 
 
