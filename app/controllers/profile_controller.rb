@@ -9,7 +9,7 @@ class ProfileController < ApplicationController
     else
       @profile_user = ProfileUser.find_or_create_by user: current_user
     end
-    @posts = current_user.posts.order(:created_at).reverse
+    @posts = @profile_user.user.posts.order(:created_at).reverse
   end
 
   def edit

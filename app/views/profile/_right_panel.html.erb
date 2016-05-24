@@ -1,5 +1,6 @@
 <div class="col-sm-8">
 
+  <%- if  @profile_user.user == current_user  %>
   <h2>Your posts</h2>
   <div id="new-post-section" class="panel panel-default">
     <div class="panel-heading">Add a post</div>
@@ -19,6 +20,7 @@
       <% end -%>
     </div>
   </div>
+  <% end %>
   <div id="your-posts-section">
     <% @posts.each do |post| %>
         <div class="panel panel-default">
@@ -30,15 +32,19 @@
           <div class="panel-body">
             <%= post.content %>
           </div>
-          <div class="panel-footer text-right">
+          <div class="panel-footer">
             <%= comments_for post %>
             <div class="text-right">
               <span class=""><i class="glyphicon glyphicon-time"></i> <%= post.created_at %></span>
             </div>
           </div>
         </div>
-
     <% end %>
+    <%- if @posts.count == 0 %>
+    <div class="text-center text-muted">
+      <h5>No posts to display</h5>
+    </div>
+    <% end -%>
   </div>
 
 
