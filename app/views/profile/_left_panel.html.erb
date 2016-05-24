@@ -1,19 +1,15 @@
-<div class="col-sm-4 sidenav">
-  <header id="header" class="text-right">
-    <h2><%= @profile_user.first_name %> <%= @profile_user.last_name%></h2>
-
-    <img src="<%= asset_url 'trex.jpg' %>" class="img-circle" alt="T-Rex" width="150" height="150">
-    <h3><strong>A field</strong> to add something<br />
-      like a short description or a brief resumé<br />
-    </h3> <br />
-    <p>Details<br />
-      <%= @profile_user.location %><br />
-      <%= @profile_user.phone_number %><br />
-      <%= @profile_user.company_name %><br />
-      <%= @profile_user.languages_spoken %><br />
-      <%= @profile_user.skills %><br />
-      <%= @profile_user.diplomas %><br />
-    </p>
-    <button type="submit" class="btn btn-primary btn-lg" value="Send Message">Send Message</button>
+<div class="col-sm-12 sidenav" id="profile">
+  <header id="header" class="text-center">
+    <img src="<%= @profile_user.avatar.url %>" class="img-circle" alt="T-Rex" width="150" height="150">
+    <h2><%= @profile_user.first_name %> <%= @profile_user.last_name%>
+      <% if can?(:edit, @profile_user) && @profile_user.user == current_user %>
+          <%= link_to edit_profile_path do  %>
+            <h5 style="display: inline"><i class="glyphicon glyphicon-pencil glyphicon-white"></i></h5>
+          <% end -%>
+      <% end %></h2>
+    <h4><%= @profile_user.company_name %></h4>
+    <%- if @profile_user.location %>
+    <p><%= @profile_user.location %></p>
+    <% end -%>
   </header>
 </div>

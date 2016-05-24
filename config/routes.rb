@@ -7,6 +7,12 @@ Rails.application.routes.draw do
   resources :departments
   resources :insas
 
+  resources :posts, only: [:show, :create, :destroy] do
+    resources :comments, only: [:show, :create, :destroy, :index], defaults: {format: :json}
+  end
+
+  get '/u/:id' => 'profile#show'
+
   devise_for :users, :controllers => {
       omniauth_callbacks: 'omniauth_callbacks',
       profile_user: 'profile_users'
@@ -17,8 +23,8 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  get '/find/:name' => 'profile_research#research_results'
   get '/find' => 'profile_research#find_user'
+  post '/find' => 'profile_research#research_results'
   post "/new_post" => "profile#new_post"
 
 

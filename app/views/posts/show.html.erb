@@ -1,0 +1,24 @@
+<div class="container margin-top post">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <div class="row">
+          <div class="col-xs-1 avatar">
+            <%- if @post.user.profile_user.avatar %>
+              <img src="<%= @post.user.profile_user.avatar.url %>">
+            <% end -%>
+          </div>
+          <div class="col-xs-11 name">
+            <span class="first_name"><%= @post.user.profile_user.first_name %></span> <span class="last_name"><%= @post.user.profile_user.last_name %></span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-body">
+        <%= @post.content %>
+      </div>
+      <div class="panel-footer">
+        <%= comments_for(@post) %>
+      </div>
+    </div>
+  </div>
+</div>

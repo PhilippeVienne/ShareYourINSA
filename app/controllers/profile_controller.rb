@@ -4,8 +4,12 @@ class ProfileController < ApplicationController
   before_action :authenticate_user! # Because we must have a non nil current_user
 
   def show
-    @profile_user = ProfileUser.find_or_create_by user: current_user
-    @posts = current_user.posts.order(:created_at).reverse
+    if params[:id]
+      @profile_user = ProfileUser.find_or_create_by user_id: params[:id]
+    else
+      @profile_user = ProfileUser.find_or_create_by user: current_user
+    end
+    @posts = @profile_user.user.posts.order(:created_at).reverse
   end
 
   def edit
