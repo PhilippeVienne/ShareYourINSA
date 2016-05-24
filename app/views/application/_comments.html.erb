@@ -1,5 +1,5 @@
 <div class="comments">
-  <%- @post.comments.each do |comment| %>
+  <%- post.comments.each do |comment| %>
       <div class="comment margin clearfix">
         <img src="<%= comment.user.profile_user.avatar.url %>" class="pull-left small-image">
                 <span class="name">
@@ -18,7 +18,7 @@
     <span class="content"></span>
   </div>
 </div>
-<form action="" method="get" class="create-comment-form" data-post-id="<%= @post.id %>">
+<form action="" method="get" class="create-comment-form" data-post-id="<%= post.id %>">
   <div class="form-group">
     <div class="input-group">
       <input class="form-control create-comment" title="write comment" placeholder="Write a comment ...">
