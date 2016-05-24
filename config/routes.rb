@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   resources :departments
   resources :insas
 
+  resources :posts, only: [:show, :create, :destroy] do
+    resources :comments, only: [:show, :create, :destroy, :index], defaults: {format: :json}
+  end
+
   devise_for :users, :controllers => {
       omniauth_callbacks: 'omniauth_callbacks',
       profile_user: 'profile_users'
