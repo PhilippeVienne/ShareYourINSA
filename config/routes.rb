@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:show, :create, :destroy, :index], defaults: {format: :json}
   end
 
+  get '/u/:id' => 'profile#show'
+
   devise_for :users, :controllers => {
       omniauth_callbacks: 'omniauth_callbacks',
       profile_user: 'profile_users'
