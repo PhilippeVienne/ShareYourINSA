@@ -15,6 +15,12 @@ class Ability
       can [:read, :create], Comment
       can :destroy, Comment, user: user
       can :create, ShowRoomProfile, user: user
+
+      if user.admin?
+        can :manage, :all
+        can :access, :rails_admin
+      end
+
     end
 
     # Define abilities for the passed in user here. For example:

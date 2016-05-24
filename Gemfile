@@ -51,7 +51,7 @@ gem 'omniauth-linkedin'
 gem 'paperclip'
 gem 'linkedin'
 
-gem 'cancancan'
+gem 'cancancan', '~> 1.10'
 gem 'rails_admin'
 
 gem 'bootstrap-sass', '~> 3.3.6'
