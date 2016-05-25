@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'show_room_profiles/index'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :profile_users
@@ -23,6 +22,7 @@ Rails.application.routes.draw do
   get '/about' => 'home#about'
 
   match '/find' => 'profile_research#find', via:[:get], defaults:{format: :json}
+  get 'wall' => 'wall#index'
   post "/new_post" => "profile#new_post"
 
 

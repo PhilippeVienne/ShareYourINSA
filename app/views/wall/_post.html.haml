@@ -1,0 +1,11 @@
+.panel.panel-default.post
+  .panel-heading.clearfix
+    = image_tag post.user.profile_user.avatar.url, class: %w(pull-left)
+    .name
+      %span.first_name=post.user.profile_user.first_name
+      %span.last_name=post.user.profile_user.last_name
+  .panel-body
+    .margin
+      = post.content
+  .panel-footer
+    = comments_for post
