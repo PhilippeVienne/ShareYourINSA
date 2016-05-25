@@ -1,3 +1,4 @@
 <footer class="container-fluid text-center">
-  <p>&copy; 2016 Groupe INSA</p>
+  <p>&copy; 2016 Groupe INSA - <%= link_to 'A propos', about_path %>
+    <% if user_signed_in? and can? :admin, :all %> - <%= link_to 'Admin', rails_admin_path %><% end %></p>
 </footer>

@@ -15,7 +15,7 @@ $(function(){
         }
     });
     $('#trash-guigui').hover(function(){
-        if(window.location.href.indexOf("localhost")) {
+        if(window.location.href.indexOf("localhost")>=0) {
             $('#guillaume').modal('show');
         }
     })
