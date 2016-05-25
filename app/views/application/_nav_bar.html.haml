@@ -15,7 +15,7 @@
           .form-group
             %input#find_area.form-control{placeholder:'Rechercher un INSAïen'}
       %ul.nav.navbar-nav.navbar-right
-        = navbar_item 'Wall', wall_path if user_signed_in?
+        = navbar_item 'Actualités', wall_path if user_signed_in?
         = navbar_item 'Profile', profile_path if user_signed_in?
         - if current_user.nil?
           %li
