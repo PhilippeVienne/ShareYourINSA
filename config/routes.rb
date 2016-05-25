@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :profile_users
   resource :profile, only: [:show, :edit, :update], controller: :profile
-  resources :promotions
-  resources :departments
-  resources :insas
 
   resources :posts, only: [:show, :create, :destroy] do
     resources :comments, only: [:show, :create, :destroy, :index], defaults: {format: :json}
@@ -20,14 +17,12 @@ Rails.application.routes.draw do
       profile_user: 'profile_users'
   }
 
-  match '/users/:id/finish_signup' => 'users#finish_signup', via: [:get, :patch], :as => :finish_signup
   match '/users/:id' => 'users#show', via: [:get], :as => :user
 
   root to: "home#index"
   get '/about' => 'home#about'
 
-  get '/find' => 'profile_research#find_user'
-  post '/find' => 'profile_research#research_results'
+  match '/find' => 'profile_research#find', via:[:get], defaults:{format: :json}
   post "/new_post" => "profile#new_post"
 
 

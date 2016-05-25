@@ -1,0 +1,24 @@
+%nav.navbar.navbar-inverse
+  .container-fluid
+    .navbar-header
+      %button.navbar-toggle{"data-target" => "#myNavbar", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %img.img.pull-left{:alt => "INSA", :height => "50", :src => asset_url('insa.jpg'), :width => "50"}
+      #brand.navbar-brand
+        ShareYourINSA
+    #myNavbar.collapse.navbar-collapse
+      %ul.nav.navbar-nav.navbar-right
+        = navbar_item 'Wall' if user_signed_in?
+        = navbar_item 'Profile', profile_path if user_signed_in?
+        - if current_user.nil?
+          %li
+            = link_to create_user_session_path do
+              %span.glyphicon.glyphicon-log-in
+              Login
+        - else
+          %li
+            = link_to destroy_user_session_path, method: :delete do
+              %span.glyphicon.glyphicon-log-out
+              Logout

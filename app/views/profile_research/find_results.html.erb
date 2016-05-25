@@ -1,7 +1,0 @@
-<% if @found_users.nil? %>
-    Aucun résultat ne correspond à votre recherche
-<% else %>
-    <%select @found_users.each do |found_user|%>
-      <%= found_user.name %>
-    <% end %>
-<% end %>
