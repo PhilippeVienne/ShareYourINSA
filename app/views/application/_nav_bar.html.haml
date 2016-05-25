@@ -14,7 +14,7 @@
         = navbar_item 'Profile', profile_path if user_signed_in?
         - if current_user.nil?
           %li
-            = link_to create_user_session_path do
+            = link_to new_user_session_path do
               %span.glyphicon.glyphicon-log-in
               Login
         - else
