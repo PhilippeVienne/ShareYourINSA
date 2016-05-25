@@ -6,8 +6,9 @@
         %span.icon-bar
         %span.icon-bar
       %img.img.pull-left{:alt => "INSA", :height => "50", :src => asset_url('insa.jpg'), :width => "50"}
-      #brand.navbar-brand
-        ShareYourINSA
+      = link_to root_path do
+        #brand.navbar-brand
+          ShareYourINSA
     #myNavbar.collapse.navbar-collapse
       - if user_signed_in?
         .navbar-form.navbar-left

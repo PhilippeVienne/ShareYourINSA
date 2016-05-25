@@ -9,9 +9,10 @@
         .margin.text-center
           = link_to 'INSA Lyon', 'https://www.insa-lyon.fr'
       .col-sm-9
-        %form#new-post.margin
+        %form#new-post.margin{method: :post,action: wall_path}
+        = form_tag wall_path, method: :post, class: 'margin' do
           .form-group
-            %textarea.form-control{placeholder: 'Ecrire un post ...'}
-          %btn.btn.btn-block.btn-default Poster
+            %textarea.form-control{placeholder: 'Ecrire un post ...', name: 'content'}
+          %button.btn.btn-block.btn-default{type: 'submit'} Poster
         - @posts.each do |post|
           = render partial: 'post', locals: {post: post}
