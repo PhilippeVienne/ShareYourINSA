@@ -1,0 +1,57 @@
+<p><h1>Présentation globale</h1>
+
+  <img src="<%= asset_url "arborescence.png" %>" alt="arborescence" style="float:right" />
+  Le backend s'articule autour d'une architecture respectant le modèle; le MVC. Cela est rendu possible grâce à l'emploi du framework RubyOnRails qui propose un panel de librairies facilitant la gestion des différentes unitées propres au MVC.
+
+
+
+
+  Ruby étant un langage permettant l'utilisation de modules (les gems), nous avons profité de cela pour incorporer à RoR des fonctionnalité renforçant la structure de notre application Web (Devise, CanCanCan, PaperClip, etc).
+  <span class="clearfix"></span>
+<p><h1>Base de Données</h1>
+
+  Notre base de données est constituée de plusieurs tables respectant pour la plupart la FNBC. Les tables principales sont :
+
+  <ul>
+    <li>User et AdminUser</li>
+    <li>ProfileUser</li>
+    <li>Insa</li>
+    <li>Departement</li>
+    <li>Promotion</li>
+    <li>Comment</li>
+    <li>Post</li>
+  </ul>
+
+  <img src="<%= asset_url "shareyourinsa_bdd.png" %>" alt="Base de données" width="100%" />
+
+  Le choix de distinguer les tables User et ProfileUser s'explique pour des raisons de facilités de manipulation et d'une volonté de séparer le plus clairement les fonctionnalités qui y sont associées telles que l'ajout d''un utilisateur (User) et la modification du profil d'un utilisateur (ProfileUser).
+
+<p><h1>MVC selon Rails</h1>
+
+  RoR permet une programmation Web selon le modèle MVC à l'aide d'un système de mapping d'URLs délocalisées au sein dun fichier particulier nommé route.rb.
+  <br>Ainsi, un mapping ressemble à :
+  <br>get mon_url => Controller#ActionAssocieeAMonUrl
+  <br>et se lit :
+  <br>Pour l'url mon_url, il faut utiliser l'action ActionAssocieeAMonUrl du controller Controller
+<br>
+  <br>Le controller correspond à une classe Ruby dont les méthodes sont les actions appelées lors d'un mapping. Ces classes sont définies dans des fichiers *.rb et sont généralement associées individuellement aux Models correspondant au type de ressource manipulée.
+<br>
+  <br>Typiquemenent, le model User est associée au controller User_controller.rb. Les models sont également des classes Ruby stockées dans des fichiers *.rb et permettent de représenter les enregistrements d'une table associée à un model. Les models permettent de définir le type de relations entre les tables. Par ex, un User a un unique ProfileUser, un INSA a plusieurs Departement et un Departement n'a qu'un seul INSA.
+  <br>Cela se traduit respectivement en Ruby par :
+<br>
+  <br>has_one :profile_user	#dans le model User
+  <br>has_many :department 	#dans le model Insa
+  <br>belongs_to :insa 		#dans le model Department
+<br>
+<br>
+<br>
+  <br>Enfin la génération de views est rendu possible par RoR à l'aide de fichiers .html.erb qui ne sont rien d'autre que des fichier html dans lesquels figurent du code Ruby. RoR met en effet à disposition du développeur un type de méthode particulier appelée helper permettant de générer du code HTML plus rapidement.
+  <br>&lt;% code_ruby %>
+<br>
+  <br>Les variables du controller résultant de la manipulation de la BDD sont récupérable par les view à l'aide de la syntaxe @var. Ainsi dans une view, on pourrait exploiter cette variable juste en écrivant :
+  <br>&lt;% method @var %>
+<br><br>
+<div class="text-center">
+  <img src="<%= asset_url "rails_mvc.png" %>" alt="Modèle MVC selon rails" />
+</div>
+</p>
