@@ -9,6 +9,16 @@ class ProfileUser < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def self.search(search)
+    r = all
+    if search
+      search.to_s.split(' ').each do |word|
+        r = r.where('first_name LIKE ? OR last_name LIKE ?', "%#{word}%", "%#{word}%")
+      end
+    end
+    r
+  end
+
   private
   def default_avatar
     "https://api.adorable.io/avatars/300/#{id}-#{first_name}.png"

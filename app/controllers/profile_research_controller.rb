@@ -2,7 +2,7 @@ class ProfileResearchController < ApplicationController
 
   # GET /find/
   def find
-    @profiles = ProfileUser.where(first_name:params[:q])
+    @profiles = ProfileUser.search(params[:q])
   end
 
   end
