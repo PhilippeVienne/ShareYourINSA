@@ -16,6 +16,7 @@ $(function(){
             $clone.find('.last_name').text(result.user.last_name);
             $clone.find('.content').text(result.content);
             $clone.find('img').attr('src',result.user.avatar);
+            $clone.find('.name').attr('href',$clone.find('.name').attr('href').toString().replace('000',result.user.id));
             $clone.appendTo($comments);
             $form.find('input').val('');
         });
