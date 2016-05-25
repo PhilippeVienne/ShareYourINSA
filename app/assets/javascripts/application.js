@@ -21,34 +21,26 @@ $(function(){
         theme: "bootstrap"
     });
 
-    $("select#find_area").select2({
+    function formatUser (user) {
+        return user.name;
+    }
+
+    $("#find_area").typeahead({
+        onSelect: function(item) {
+            window.location.href = "/u/"+item.value;
+        },
         ajax: {
             url: "/find",
-            dataType: 'json',
-            delay: 250,
-            data: function (params) {
+            timeout: 100,
+            displayField: "name",
+            triggerLength: 1,
+            method: "get",
+            loadingClass: "loading-circle",
+            preDispatch: function (query) {
                 return {
-                    q: params.term, // search term
-                    page: params.page
-                };
-            },
-            processResults: function (data, params) {
-                // parse the results into the format expected by Select2
-                // since we are using custom formatting functions we do not need to
-                // alter the remote JSON data, except to indicate that infinite
-                // scrolling can be used
-                params.page = params.page || 1;
-
-                return {
-                    results: data.items,
-                    pagination: {
-                        more: (params.page * 30) < data.total_count
-                    }
-                };
-            },
-            cache: true
-        },
-        escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
-        minimumInputLength: 1
+                    q: query
+                }
+            }
+        }
     });
 });

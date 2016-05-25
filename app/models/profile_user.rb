@@ -10,7 +10,7 @@ class ProfileUser < ActiveRecord::Base
   end
 
   def self.search(search)
-    r = all
+    r = where('user_id > 0')
     if search
       search.to_s.split(' ').each do |word|
         r = r.where('first_name LIKE ? OR last_name LIKE ?', "%#{word}%", "%#{word}%")

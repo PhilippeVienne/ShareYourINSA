@@ -1,4 +1,5 @@
 json.array!(@profiles) do |profile|
-  json.extract! profile, :id, :first_name, :last_name, :avatar
-  json.user profile.user, :id, :email
+  json.id profile.user.id
+  json.name profile.name
+  json.avatar profile.avatar
 end
