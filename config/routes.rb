@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get '/about' => 'home#about'
 
   match '/find' => 'profile_research#find', via:[:get], defaults:{format: :json}
+  get 'data'=>'show_room_profiles#data', defaults: {format: :json}
   get 'wall' => 'wall#index'
   post "/new_post" => "profile#new_post"
 
