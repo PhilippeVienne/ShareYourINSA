@@ -2,10 +2,10 @@
   <%- post.comments.each do |comment| %>
       <div class="comment margin clearfix">
         <img src="<%= comment.user.profile_user.avatar.url %>" class="pull-left small-image">
-                <span class="name">
+                <a href="<%= user_path id: comment.user.id %>" class="name">
                   <span class="first_name"><%= comment.user.profile_user.first_name %></span>
                   <span class="last_name"><%= comment.user.profile_user.last_name %></span>
-                </span>
+                </a>
         <span class="content"><%= comment.content %></span>
       </div>
   <% end -%>
